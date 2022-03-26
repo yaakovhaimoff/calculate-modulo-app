@@ -7,13 +7,32 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
+class ViewController: UIViewController
+{
+    
+    @IBOutlet weak var numberTxt: UITextField!
+    @IBOutlet weak var moduloField: UITextField!
+    @IBOutlet weak var outcomeLbl: UILabel!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        outcomeLbl.text = ""
     }
-
-
+    
+    @IBAction func calculateModulo(_ sender: Any)
+    {
+        var num = Int(numberTxt.text!)!
+        let mod = Int(moduloField.text!)!
+        if num < 0
+        {
+            while num < 0
+            {
+                num += mod
+            }
+        }
+        let outComeNum = num % mod
+        outcomeLbl.text = "\(outComeNum)"
+    }
 }
 
