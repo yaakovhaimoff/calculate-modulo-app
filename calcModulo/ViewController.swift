@@ -40,6 +40,7 @@ class ViewController: UIViewController
         outcomeLbl.text = "\(outComeNum)"
     }
     
+    
     @objc func hideKeyboardByTappingOutside() {
         self.view.endEditing(true)
     }
