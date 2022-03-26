@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController
 {
-    
     @IBOutlet weak var numberTxt: UITextField!
     @IBOutlet weak var moduloField: UITextField!
     @IBOutlet weak var outcomeLbl: UILabel!
@@ -17,6 +16,12 @@ class ViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // hides Keyboard By Tapping Outside
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboardByTappingOutside))
+        
+        self.view.addGestureRecognizer(tap)
+        
         outcomeLbl.text = ""
     }
     
@@ -34,5 +39,8 @@ class ViewController: UIViewController
         let outComeNum = num % mod
         outcomeLbl.text = "\(outComeNum)"
     }
+    
+    @objc func hideKeyboardByTappingOutside() {
+        self.view.endEditing(true)
+    }
 }
-
